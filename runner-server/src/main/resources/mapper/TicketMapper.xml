@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.back.mapper.TicketMapper">
+
+    <insert id="insertBatch" parameterType="java.util.List">
+    insert into ticket (ticket_name, ticket_sum, ticket_account, user_id)
+    values
+        <foreach collection="ticketList" item="ticket" separator=",">
+            (#{ticket.ticketName}, #{ticket.ticketSum}, #{ticket.ticketAccount}, #{ticket.userId})
+        </foreach>
+    </insert>
+
+</mapper>
