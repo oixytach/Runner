@@ -5,10 +5,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.back.constant.MessageConstant;
 import com.back.dto.UserDTO;
 import com.back.dto.UserLoginDTO;
+import com.back.entity.Order;
 import com.back.entity.Ticket;
 import com.back.entity.User;
 import com.back.exception.AccountNotFoundException;
 import com.back.exception.LoginFailedException;
+import com.back.exception.OrderBusinessException;
+import com.back.mapper.OrderMapper;
 import com.back.mapper.TicketMapper;
 import com.back.mapper.UserMapper;
 import com.back.properties.WeChatProperties;
@@ -39,6 +42,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private TicketMapper ticketMapper;
+
+
+
 
     /**
      * 微信登录
@@ -105,14 +111,15 @@ public class UserServiceImpl implements UserService {
      * 根据用户 ID 查询用户信息
      *
      * @param userid 用户 ID
-     * @return 返回用户信息或 404 错误
+     * @return 返回用户信息或错误
      */
-    public User getId(Long userid){
+    public User getUserInfo(Long userid){
         User user = userMapper.getByUserid(userid);
         if(user == null){
             throw new AccountNotFoundException(MessageConstant.ACCOUNT_FAILED);
         }
         return user;
     }
+
 
 }
