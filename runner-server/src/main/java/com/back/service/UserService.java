@@ -12,6 +12,7 @@ public interface UserService {
      */
     User wxLogin(UserLoginDTO userLoginDTO);
 
+    User getId(Long id);
 
     void update(UserDTO userDTO);
 }

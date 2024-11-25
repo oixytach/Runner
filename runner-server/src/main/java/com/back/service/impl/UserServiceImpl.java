@@ -7,6 +7,7 @@ import com.back.dto.UserDTO;
 import com.back.dto.UserLoginDTO;
 import com.back.entity.Ticket;
 import com.back.entity.User;
+import com.back.exception.AccountNotFoundException;
 import com.back.exception.LoginFailedException;
 import com.back.mapper.TicketMapper;
 import com.back.mapper.UserMapper;
@@ -99,4 +100,19 @@ public class UserServiceImpl implements UserService {
         ticketList.forEach(ticket -> ticket.setUserId(userId));
         ticketMapper.insertBatch(ticketList);
     }
+
+    /**
+     * 根据用户 ID 查询用户信息
+     *
+     * @param userid 用户 ID
+     * @return 返回用户信息或 404 错误
+     */
+    public User getId(Long userid){
+        User user = userMapper.getByUserid(userid);
+        if(user == null){
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_FAILED);
+        }
+        return user;
+    }
+
 }

@@ -14,6 +14,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -54,8 +55,6 @@ public class UserController {
                 .openid(user.getOpenId())
                 .token(token)
                 .build();
-
-
         return Result.success(userLoginVO);
 
     }
@@ -68,5 +67,14 @@ public class UserController {
         userService.update(userDTO);
         return Result.success();
     }
+
+
+    @GetMapping("/{id}")
+    @ApiOperation("查询用户信息")
+    public Result<User> getUserById(@PathVariable("id") Long userId) {
+        User user = userService.getId(userId);
+        return Result.success(user);
+    }
+
 
 }

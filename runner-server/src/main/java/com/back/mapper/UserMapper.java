@@ -18,6 +18,14 @@ public interface UserMapper {
     User getByOpenid(String openid);
 
     /**
+     * 根据openid查询用户
+     * @param user_id
+     * @return
+     */
+    @Select("select * from user where user_id = #{userid}")
+    User getByUserid(Long user_id);
+
+    /**
      * 插入数据
      * @param user
      */
