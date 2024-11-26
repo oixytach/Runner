@@ -40,4 +40,8 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.insert(order);
     }
 
+
+    public List<Order> getOrder(){
+        return orderMapper.getOrder();
+    }
 }
