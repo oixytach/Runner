@@ -40,4 +40,15 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.insert(order);
     }
 
+    public void updateOrderInfo(OrderDTO orderDTO){
+        Order order = new Order();
+        BeanUtils.copyProperties(orderDTO, order);
+
+        //Long orderId = order.getOrderId();
+        //orderMapper.deleteByOrderId(orderId);
+
+        //orderMapper.insert(order);
+
+        orderMapper.update(order);
+    }
 }

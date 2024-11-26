@@ -8,5 +8,19 @@
         values(#{typeService},#{status},#{userId},#{description},#{riderId},#{deliveryAddress},#{deliveryTime},#{orderStar})
     </insert>
 
+    <update id="update">
+        update `order`
+        <set>
+            <if test="typeService!=null">type_service=#{typeService},</if>
+            <if test="status!=null">status=#{status},</if>
+            <if test="userId!=null">user_id=#{userId},</if>
+            <if test="description!=null">description=#{description},</if>
+            <if test="riderId!=null">rider_id=#{riderId},</if>
+            <if test="deliveryAddress!=null">delivery_address=#{deliveryAddress},</if>
+            <if test="deliveryTime!=null">delivery_time=#{deliveryTime},</if>
+            <if test="orderStar!=null">order_star=#{orderStar}</if>
+        </set>
+        where order_id = #{orderId}
+    </update>
 
 </mapper>

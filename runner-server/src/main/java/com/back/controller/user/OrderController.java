@@ -35,4 +35,12 @@ public class OrderController {
         orderService.createOrderInfo(orderDTO);
         return Result.success();
     }
+
+    @PutMapping
+    @ApiOperation("更新订单信息")
+    public Result updateOrderById(@RequestBody OrderDTO orderDTO) {
+        orderService.updateOrderInfo(orderDTO);
+        return Result.success();
+    }
+
 }
