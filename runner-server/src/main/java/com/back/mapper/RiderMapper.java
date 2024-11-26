@@ -9,6 +9,6 @@ import java.util.List;
 @Mapper
 public interface RiderMapper {
 
-    @Select("select * from `order` where status = 0")
+    @Select("select * from orders where status = 0")
     List<Order> getByStatus();
 }

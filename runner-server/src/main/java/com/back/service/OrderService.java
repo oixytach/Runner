@@ -11,5 +11,7 @@ public interface OrderService {
 
     void createOrderInfo(OrderDTO orderDTO);
 
+    void updateOrderInfo(OrderDTO orderDTO);
+
     List<Order> getOrder();
 }

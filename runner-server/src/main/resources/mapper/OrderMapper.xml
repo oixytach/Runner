@@ -4,12 +4,12 @@
 <mapper namespace="com.back.mapper.OrderMapper">
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="orderId">
-        insert into `order`(type_service, status, user_id, description, rider_id, delivery_address, delivery_time, order_star)
+        insert into orders(type_service, status, user_id, description, rider_id, delivery_address, delivery_time, order_star)
         values(#{typeService},#{status},#{userId},#{description},#{riderId},#{deliveryAddress},#{deliveryTime},#{orderStar})
     </insert>
 
     <update id="update">
-        update `order`
+        update orders
         <set>
             <if test="typeService!=null">type_service=#{typeService},</if>
             <if test="status!=null">status=#{status},</if>

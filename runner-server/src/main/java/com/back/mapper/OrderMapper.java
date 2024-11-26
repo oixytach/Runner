@@ -22,4 +22,6 @@ public interface OrderMapper {
 
     @Select("select * from orders")
     List<Order> getOrder();
+
+    void update(Order order);
 }
