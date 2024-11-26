@@ -122,4 +122,19 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    public List<UserDTO> getAllUsers(){
+        List<UserDTO> userList = userMapper.getAllUsers();
+        userList.forEach(userDTO -> userDTO.setTicketList(ticketMapper.getByUserid(userDTO.getUserId()) ));
+
+        return userList;
+    }
+
+
+    public UserDTO getUserDTOById(Long userId){
+        User user = userMapper.getByUserid(userId);
+        UserDTO userDTO = new UserDTO();
+        BeanUtils.copyProperties(user, userDTO);
+        userDTO.setTicketList(ticketMapper.getByUserid(userId));
+        return userDTO;
+    }
 }

@@ -16,4 +16,7 @@ public interface TicketMapper {
     void deleteById(Long userId);
 
     void insertBatch(List<Ticket> ticketList);
+
+    @Select("select * from ticket where user_id = #{userId}")
+    List<Ticket> getByUserid(Long userId);
 }

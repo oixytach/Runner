@@ -22,13 +22,13 @@ public class OrderAdminController {
     private OrderService orderService;
 
     @GetMapping
-    public Result<List<Order>> SelectAllOrder(){
+    public Result<List<Order>> selectAllOrder(){
         List<Order> orders = orderService.getOrder();
         return Result.success(orders);
     }
 
     @GetMapping("/{id}")
-    public Result<List<Order>> SelectOrderById(@PathVariable Long id, Integer status){
+    public Result<List<Order>> selectOrderById(@PathVariable Long id, Integer status){
         List<Order> orders = orderService.getOrderInfo(id);
         return Result.success(orders);
     }

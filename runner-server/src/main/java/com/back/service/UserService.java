@@ -5,6 +5,8 @@ import com.back.dto.UserLoginDTO;
 import com.back.entity.Order;
 import com.back.entity.User;
 
+import java.util.List;
+
 public interface UserService {
      /**
      * 微信登录
@@ -17,4 +19,7 @@ public interface UserService {
 
     void update(UserDTO userDTO);
 
+    List<UserDTO> getAllUsers();
+
+    UserDTO getUserDTOById(Long userId);
 }

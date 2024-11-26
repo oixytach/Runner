@@ -1,10 +1,13 @@
 package com.back.mapper;
 
 import com.back.annotation.AutoFill;
+import com.back.dto.UserDTO;
 import com.back.entity.User;
 import com.back.enumeration.OperationType;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface UserMapper {
@@ -38,4 +41,7 @@ public interface UserMapper {
      */
     //@AutoFill(value = OperationType.UPDATE)
     void update(User user);
+
+    @Select("select * from user")
+    List<UserDTO> getAllUsers();
 }
