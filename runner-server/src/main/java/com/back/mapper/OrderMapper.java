@@ -14,13 +14,13 @@ import java.util.List;
 public interface OrderMapper {
 
 
-    @Select("select * from `orders` where user_id = #{userid}")
+    @Select("select * from ticket where user_id = #{userid}")
     List<Order> getByUserid(Long user_id);
 
     //@AutoFill(value = OperationType.INSERT)
     void insert(Order order);
 
-    @Select("select * from `orders`")
-    List<Order> getOrder();
+
+
 
 }

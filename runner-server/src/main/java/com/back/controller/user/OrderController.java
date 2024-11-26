@@ -35,6 +35,4 @@ public class OrderController {
         orderService.createOrderInfo(orderDTO);
         return Result.success();
     }
-
-
 }

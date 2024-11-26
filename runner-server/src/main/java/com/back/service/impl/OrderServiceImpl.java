@@ -9,7 +9,6 @@ import com.back.service.OrderService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
-    @Transactional
+
     public void createOrderInfo(OrderDTO orderDTO) {
         Order order = new Order();
         BeanUtils.copyProperties(orderDTO, order);
@@ -41,12 +40,4 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.insert(order);
     }
 
-    public List<Order> getOrder(){
-        return orderMapper.getOrder();
-    }
-
-
-    public List<Order> getOrderById(Long id){
-        return orderMapper.getByUserid(id);
-    }
 }

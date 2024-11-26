@@ -10,7 +10,4 @@ public interface OrderService {
     List<Order> getOrderInfo(Long id);
 
     void createOrderInfo(OrderDTO orderDTO);
-
-    List<Order> getOrder();
-
 }
